@@ -1,0 +1,3 @@
+import jwt from 'jsonwebtoken'; import dotenv from 'dotenv'; dotenv.config();
+export function auth(req,res,next){ const header=req.headers.authorization; if(!header) return res.status(401).json({message:'No token'}); const token=header.split(' ')[1]; try{ const data=jwt.verify(token, process.env.JWT_SECRET||'secret'); req.user=data; next(); }catch(e){ return res.status(401).json({message:'Invalid token'}); } }
+export function permit(...allowed){ return (req,res,next)=>{ const role=req.user?.role; if(!role) return res.status(401).json({message:'No role'}); if(allowed.includes(role)) return next(); return res.status(403).json({message:'Forbidden'}); } }

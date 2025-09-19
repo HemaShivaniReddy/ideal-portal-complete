@@ -1,0 +1,11 @@
+:root{--bg:#071226;--card:#0e1b2a;--muted:#9aa6b2;--accent:#4dd0e1;--btn:#1fb6ff}
+*{box-sizing:border-box;font-family:Inter,system-ui,Avenir,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{margin:0;background:linear-gradient(180deg,#061124 0%, #071226 100%);color:#e6eef6}
+.container{max-width:980px;margin:40px auto;padding:0 16px}
+.nav{background:var(--card);padding:14px 20px;border-radius:8px;display:flex;align-items:center;justify-content:space-between}
+.brand h1{font-size:18px;margin:0;color:var(--accent)}
+.card{background:rgba(9,18,28,0.9);padding:28px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.input{width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071726;color:#dfe9f2;margin-bottom:12px}
+.button{background:var(--btn);border:none;color:#022;padding:10px 14px;border-radius:8px;cursor:pointer}
+.small{font-size:14px;color:var(--muted)}
+.select{padding:10px;border-radius:8px;background:#071726;color:#dfe9f2;border:1px solid rgba(255,255,255,0.03)}

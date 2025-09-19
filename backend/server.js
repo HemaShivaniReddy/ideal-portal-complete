@@ -1,0 +1,18 @@
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import authRoutes from './routes/auth.js';
+import ideasRoutes from './routes/ideas.js';
+import usersRoutes from './routes/users.js';
+dotenv.config();
+const app = express();
+app.use(express.json());
+const origins = (process.env.ALLOWED_ORIGINS||'').split(',').filter(Boolean);
+app.use(cors({ origin: origins.length? origins : true, credentials: true }));
+mongoose.connect(process.env.MONGO_URI||'mongodb://localhost:27017/ideal-portal').then(()=>console.log('mongo ok')).catch(e=>console.error(e));
+app.use('/api/auth', authRoutes);
+app.use('/api/ideas', ideasRoutes);
+app.use('/api/users', usersRoutes);
+app.get('/', (req,res)=> res.send('Ideal Portal backend'));
+app.listen(process.env.PORT||5000, ()=> console.log('server up'));

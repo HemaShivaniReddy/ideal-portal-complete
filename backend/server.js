@@ -15,4 +15,4 @@ app.use('/api/auth', authRoutes);
 app.use('/api/ideas', ideasRoutes);
 app.use('/api/users', usersRoutes);
 app.get('/', (req,res)=> res.send('Ideal Portal backend'));
-app.listen(process.env.PORT||5000, ()=> console.log('server up'));
+app.listen(process.env.PORT||5001, ()=> console.log('server up'));

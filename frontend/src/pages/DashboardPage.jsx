@@ -10,7 +10,7 @@ export default function DashboardPage(){
 
   async function fetchIdeas(){
     try{
-      const res = await axios.get((import.meta.env.VITE_API_URL||'http://localhost:5000') + '/api/ideas');
+      const res = await axios.get((import.meta.env.VITE_API_URL||'http://localhost:5001') + '/api/ideas');
       setIdeas(res.data);
     }catch(e){ console.error(e); }
   }

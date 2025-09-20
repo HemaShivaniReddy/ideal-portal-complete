@@ -11,7 +11,7 @@ export default function RegisterPage(){
   const submit = async (e)=>{
     e.preventDefault();
     try{
-      await axios.post((import.meta.env.VITE_API_URL||'http://localhost:5000') + '/api/auth/register', { name, email, password });
+      await axios.post((import.meta.env.VITE_API_URL||'http://localhost:5001') + '/api/auth/register', { name, email, password });
       alert('Registered, please login.');
       navigate('/');
     }catch(err){ alert(err.response?.data?.message || 'Error'); }

@@ -9,7 +9,7 @@ export default function AdminPage(){
   async function fetchUsers(){
     try{
       const token = localStorage.getItem('token');
-      const res = await axios.get((import.meta.env.VITE_API_URL||'http://localhost:5000') + '/api/users', { headers: { Authorization: 'Bearer '+token } });
+      const res = await axios.get((import.meta.env.VITE_API_URL||'http://localhost:5001') + '/api/users', { headers: { Authorization: 'Bearer '+token } });
       setUsers(res.data);
     }catch(e){ alert('Error fetching users'); }
   }
@@ -17,7 +17,7 @@ export default function AdminPage(){
   async function changeRole(id,role){
     try{
       const token = localStorage.getItem('token');
-      await axios.put((import.meta.env.VITE_API_URL||'http://localhost:5000') + '/api/users/' + id + '/role', { role }, { headers: { Authorization: 'Bearer '+token } });
+      await axios.put((import.meta.env.VITE_API_URL||'http://localhost:5001') + '/api/users/' + id + '/role', { role }, { headers: { Authorization: 'Bearer '+token } });
       fetchUsers();
     }catch(e){ alert('Error updating role'); }
   }
